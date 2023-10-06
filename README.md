@@ -30,3 +30,9 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+随時追加予定
+
+## 実装機能リスト
+- https://docs.google.com/spreadsheets/d/1y18L9ibrMZo2FUo8lHX_cHKB4d2gkA4RLvRgg6y0glc/edit?usp=sharing
