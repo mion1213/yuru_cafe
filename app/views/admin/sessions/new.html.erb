@@ -1,0 +1,27 @@
+<div class="container">
+  <h3><strong>管理者ログイン</strong></h3>
+  <div class="row">
+    <div class="col-10">
+      <%= form_with model: resource, url: session_path(resource_name) do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td style="width: 30%"><strong><%= f.label :email, class: "form-label" %></strong></td>
+          <td>
+            <%= f.text_field :email, autofocus: true, id: "email", class: "form-control", style: "width:40%" %>
+          </td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :password, class: "form-label" %></strong></td>
+          <td>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control", style: "width:40%"  %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "ログイン", class: "btn btn-info" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
