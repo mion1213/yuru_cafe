@@ -7,7 +7,7 @@ class CreateBookmarks < ActiveRecord::Migration[6.1]
     end
 
     # bookmarksにおいてuser_idとpost_idの組み合わせを一意性のあるものにする
-    add_index :bookmarks, [:user_id, :post_id], unique: true, name: 'index_bookmarks_on_user_and_post'
+    add_index :bookmarks, [:user_id, :post_id], unique: true
   end
 end
 
