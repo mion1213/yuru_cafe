@@ -20,15 +20,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
   
-    resources :orders, only: [:new, :create, :index, :show] do
-      collection do
-        get 'confirm'
-        post 'confirm'
-        get 'complete'
-      end
-    end
-  
-    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     
     root to: "homes#top"
     get 'home/about' => 'homes#about' , as: "about"
