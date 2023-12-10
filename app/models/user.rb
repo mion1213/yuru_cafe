@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_posts, through: :bookmarks, source: :post
+  has_many :comments, dependent: :destroy
   
   # フォローをした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy

@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   scope module: :public do
     
     resources :posts, only: [:index, :create, :update, :destroy] do
-      resource :bookmarks, only: [:index, :show, :create, :destroy]
+      resources collection do
+        get :bookmarks
+      end
+      resource :bookmarks, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
@@ -26,11 +29,12 @@ Rails.application.routes.draw do
   end
   
   namespace :public do
-    get '/customers/profile' => 'customers#show'
-    get '/customers/profile/edit' => 'customers#edit'
-    patch '/customers/profile' => 'customers#update'
-    get  '/customers/profile/check' => 'customers#check'
-    patch  '/customers/profile/withdraw' => 'customers#withdraw'
+    resources :users do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
+
   end
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
